@@ -21,10 +21,9 @@ class WelcomeController < WebsocketRails::BaseController
             msg_body:   ERB::Util.html_escape(msg)
         }
     end
-    
     def new
         new_mess = {:user_name => 'this is a test of new function', msg_body: "hello", new_field: 'new data'}
-        send_message :newMess, new_mess
+        system_msg :new_message, "Hello", "goodbye"
     end
     
     def newer
