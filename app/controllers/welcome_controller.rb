@@ -21,29 +21,30 @@ class WelcomeController < WebsocketRails::BaseController
             msg_body:   ERB::Util.html_escape(msg)
         }
     end
+    
     def new
         new_mess = {:user_name => 'this is a test of new function', msg_body: "hello", new_field: 'new data'}
-        system_msg :new_message, "Hello", "goodbye"
+        broadcast_message :newMess, new_mess 
+    
     end
     
     def newer
         country = {:user_name => "america", msg_body: "japan", new_field: 'new data'}
-        send_message :country, country
+        broadcast_message :country, country
     end
     
     def green_message
         greenMess = {:user_name => 'testing green', msg_body: 'green', new_field: 'new data'}
-        send_message :greenMess, greenMess
+        broadcast_message :greenMess, greenMess
     end
     
     def blue_message
         blueMess = {:user_name => 'testing blue', msg_body: 'blue', new_field: 'new data'}
-        send_message :blueMess, blueMess
+        broadcast_message :blueMess, blueMess
     end
     
     def client_connected
         system_msg :new_message, "client #{client_id} connected"
-        $globalVariable = 100
     end
     
     def new_message

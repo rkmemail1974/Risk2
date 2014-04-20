@@ -60,23 +60,23 @@ class Welcome.Controller
   sendMessage: (event) =>
     event.preventDefault()
     message = $('#message').val()
-    @dispatcher.trigger 'new_message', {user_name: @user.user_name, msg_body: message, new_field: "new data"}
+    @dispatcher.trigger 'new_message'
     $('#message').val('')
     
 
   sendMessageColorGreen: (event) =>
     event.preventDefault()
     message = $('#green').val()
-    @dispatcher.trigger 'green_message', {user_name: @user.user_name, msg_body: message, new_field: "new data"}
-           
+    @dispatcher.trigger 'green_message'
+               
   sendMessageColorBlue: (event) =>
     event.preventDefault()
-    @dispatcher.trigger 'blue_message', {user_name: @user.user_name, msg_body: message, new_field: "new data"}
-           
+    @dispatcher.trigger 'blue_message'
+               
   sendMessageTest: (event) =>
     event.preventDefault()
     message = $('#message2').val()
-    @dispatcher.trigger 'new_message', {user_name: @user.user_name, msg_body: message, new_field: "new data"}
+    @dispatcher.trigger 'new_message'
     $('#message2').val('')
 
   updateUserList: (userList) =>
